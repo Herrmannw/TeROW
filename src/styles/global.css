@@ -533,31 +533,17 @@
     background: var(--white);
   }
 
-  .section-heading--split {
-    display: grid;
-    grid-template-columns: minmax(0, 1.4fr) minmax(18rem, 0.6fr);
-    gap: clamp(2rem, 8vw, 8rem);
-    align-items: end;
-  }
-
   .section-heading .eyebrow {
     margin-bottom: 1.2rem;
   }
 
   .section-heading h2 {
-    max-width: 12ch;
-  }
-
-  .section-heading > p,
-  .section-heading > div:last-child > p:first-child {
-    color: var(--muted);
-    font-size: 1.03rem;
-    line-height: 1.75;
+    max-width: none;
   }
 
   .service-grid {
     display: grid;
-    margin-top: 4rem;
+    margin-top: clamp(2.5rem, 4vw, 3.25rem);
     grid-template-columns: repeat(3, 1fr);
     border-top: 1px solid var(--line);
     border-left: 1px solid var(--line);
@@ -565,9 +551,11 @@
 
   .service-card {
     position: relative;
+    display: flex;
     min-height: 18rem;
     padding: 2rem;
     overflow: hidden;
+    flex-direction: column;
     border-right: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
     background: var(--white);
@@ -598,16 +586,8 @@
     transform: scale(1.35);
   }
 
-  .service-card__number {
-    color: var(--green);
-    font-size: 0.72rem;
-    font-weight: 850;
-    letter-spacing: 0.1em;
-  }
-
   .service-card h3 {
     max-width: 12rem;
-    margin-top: 2.5rem;
     font-family: var(--display);
     font-size: 1.75rem;
     font-weight: 500;
@@ -615,18 +595,19 @@
 
   .service-card p {
     max-width: 20rem;
-    margin-top: 1rem;
+    margin: 1rem 0 1.75rem;
     color: var(--muted);
     font-size: 0.88rem;
     line-height: 1.7;
   }
 
   .service-card a {
-    position: absolute;
-    bottom: 1.75rem;
+    z-index: 1;
     display: inline-flex;
+    margin-top: auto;
     gap: 0.6rem;
     align-items: center;
+    align-self: flex-start;
     color: var(--green-dark);
     font-size: 0.76rem;
     font-weight: 800;
@@ -788,33 +769,14 @@
     font-size: 0.82rem;
   }
 
-  .text-link {
-    display: inline-flex;
-    margin-top: 1.5rem;
-    gap: 0.75rem;
-    align-items: center;
-    padding-bottom: 0.25rem;
-    border-bottom: 1px solid currentColor;
-    font-size: 0.8rem;
-    font-weight: 800;
-  }
-
-  .text-link--light {
-    color: var(--white);
-  }
-
   .gallery {
     background: var(--cream);
   }
 
-  .section-heading--gallery {
-    align-items: end;
-  }
-
   .sample-note {
-    margin-top: 1rem;
-    color: #7a827c !important;
-    font-size: 0.68rem !important;
+    margin-top: clamp(2rem, 3vw, 2.75rem);
+    color: #7a827c;
+    font-size: 0.68rem;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -822,7 +784,7 @@
 
   .gallery-grid {
     display: grid;
-    margin-top: 3.5rem;
+    margin-top: 0.8rem;
     grid-template-columns: repeat(12, 1fr);
     grid-auto-rows: 17rem;
     gap: 1rem;
@@ -1703,16 +1665,6 @@
     border-bottom: 0;
   }
 
-  .section-heading--split {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .section-heading > p,
-  .section-heading > div:last-child > p:first-child {
-    max-width: 38rem;
-  }
-
   .service-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1872,6 +1824,7 @@
   }
 
   .section-heading h2 {
+    max-width: 12ch;
     font-size: clamp(2.5rem, 12vw, 3.35rem);
   }
 

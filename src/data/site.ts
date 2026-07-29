@@ -44,37 +44,31 @@ export const serviceArea = {
 
 export const featuredServices = [
   {
-    number: "01",
     title: "Lawn care & maintenance",
     description:
       "Dependable mowing, edging, trimming, and seasonal upkeep for a lawn that always feels cared for.",
   },
   {
-    number: "02",
     title: "Landscape design & installation",
     description:
       "Practical, beautiful planting plans shaped around your home, your routine, and Houston conditions.",
   },
   {
-    number: "03",
     title: "Fresh sod installation",
     description:
       "Thoughtful preparation and clean installation that gives tired or damaged yards a confident reset.",
   },
   {
-    number: "04",
     title: "Flower beds & mulch",
     description:
       "Color, definition, and healthier beds through planting, mulching, edging, and ongoing care.",
   },
   {
-    number: "05",
     title: "Tree & shrub care",
     description:
       "Selective trimming and shaping that keeps greenery tidy, healthy, and clear of key structures.",
   },
   {
-    number: "06",
     title: "Patios & walkways",
     description:
       "Welcoming hardscape details that make the trip from your back door to the yard feel effortless.",

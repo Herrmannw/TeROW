@@ -178,25 +178,18 @@ const serviceOptions = featuredServices.map((service) => service.title);
 
       <section class="section services" id="services">
         <div class="container">
-          <div class="section-heading section-heading--split">
-            <div>
-              <p class="eyebrow">
-                <span aria-hidden="true"></span>
-                What we do
-              </p>
-              <h2>Everything your yard needs to feel <em>well cared for.</em></h2>
-            </div>
-            <p>
-              One trusted team for routine upkeep, thoughtful improvements, and
-              the details that make an outdoor space feel complete.
+          <div class="section-heading">
+            <p class="eyebrow">
+              <span aria-hidden="true"></span>
+              What we do
             </p>
+            <h2>Everything your yard needs to feel <em>well cared for.</em></h2>
           </div>
 
           <div class="service-grid">
             {
               featuredServices.map((service) => (
                 <article class="service-card">
-                  <span class="service-card__number">{service.number}</span>
                   <h3>{service.title}</h3>
                   <p>{service.description}</p>
                   <a href="#contact">
@@ -272,31 +265,21 @@ const serviceOptions = featuredServices.map((service) => service.title);
                 ))
               }
             </ol>
-            <a class="text-link text-link--light" href="#contact">
-              Start a conversation <span aria-hidden="true">→</span>
-            </a>
           </div>
         </div>
       </section>
 
       <section class="section gallery" id="work">
         <div class="container">
-          <div class="section-heading section-heading--split section-heading--gallery">
-            <div>
-              <p class="eyebrow">
-                <span aria-hidden="true"></span>
-                Picture the possibilities
-              </p>
-              <h2>Care you can see from the <em>curb.</em></h2>
-            </div>
-            <div>
-              <p>
-                A look at the kinds of details and outdoor spaces we can help
-                you create and maintain.
-              </p>
-              <p class="sample-note">Sample imagery · Not TeROW project photography</p>
-            </div>
+          <div class="section-heading">
+            <p class="eyebrow">
+              <span aria-hidden="true"></span>
+              Picture the possibilities
+            </p>
+            <h2>Care you can see from the <em>curb.</em></h2>
           </div>
+
+          <p class="sample-note">Sample imagery · Not TeROW project photography</p>
 
           <div class="gallery-grid">
             {
