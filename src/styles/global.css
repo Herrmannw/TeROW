@@ -226,18 +226,6 @@
     color: var(--white);
   }
 
-  .button--cream {
-    color: var(--green-deep);
-    background: var(--cream);
-    border-color: var(--cream);
-  }
-
-  .button--cream:hover {
-    color: var(--green-deep);
-    background: var(--white);
-    border-color: var(--white);
-  }
-
   .utility-bar {
     color: #dfe9e2;
     background: var(--green-deep);
@@ -888,14 +876,10 @@
   .service-area__top {
     position: relative;
     z-index: 1;
-    display: flex;
-    justify-content: space-between;
-    gap: 2rem;
-    align-items: end;
   }
 
   .service-area__top h2 {
-    max-width: 12ch;
+    max-width: none;
     margin-top: 1.2rem;
     color: var(--white);
   }
@@ -1882,9 +1866,8 @@
     grid-row: span 1;
   }
 
-  .service-area__top {
-    align-items: flex-start;
-    flex-direction: column;
+  .service-area__top h2 {
+    max-width: 12ch;
   }
 
   .area-map {
