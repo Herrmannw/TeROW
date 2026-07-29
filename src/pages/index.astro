@@ -1,0 +1,837 @@
+---
+import { Image } from "astro:assets";
+import heroPatio from "../assets/images/hero-patio.jpg";
+import lawnMowing from "../assets/images/lawn-mowing.jpg";
+import shrubTrimming from "../assets/images/shrub-trimming.jpg";
+import flowerBed from "../assets/images/flower-bed.jpg";
+import sodInstallation from "../assets/images/sod-installation.jpg";
+import gardenWalkway from "../assets/images/garden-walkway.jpg";
+import {
+  allServices,
+  business,
+  featuredServices,
+  galleryItems,
+  processSteps,
+  serviceArea,
+} from "../data/site";
+import "../styles/global.css";
+
+const pageTitle = `${business.name} | Houston Landscaping`;
+const description =
+  "Friendly, dependable lawn care, landscape installation, sod, flower beds, trimming, patios, and more across Greater Houston.";
+const ogImage = new URL("/og.png", business.url).toString();
+const galleryImages = [
+  heroPatio,
+  lawnMowing,
+  shrubTrimming,
+  flowerBed,
+  sodInstallation,
+  gardenWalkway,
+];
+const serviceOptions = featuredServices.map((service) => service.title);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b4129" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <div class="utility-bar">
+      <div class="container utility-bar__inner">
+        <p>Serving Houston and surrounding communities</p>
+        <div class="utility-bar__links">
+          <span>Mon–Fri 7–6 · Sat 8–4</span>
+          <a href={`tel:${business.phoneHref}`}>{business.phoneDisplay}</a>
+        </div>
+      </div>
+    </div>
+
+    <header class="site-header" data-header>
+      <div class="container site-header__inner">
+        <a class="brand" href="#top" aria-label={`${business.shortName} home`}>
+          <img
+            src="/terow-logo.png"
+            alt="TeROW Land Management Services"
+            width="1436"
+            height="584"
+          />
+        </a>
+
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+          data-menu-toggle
+        >
+          <span class="menu-toggle__icon" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </span>
+          <span data-menu-label>Menu</span>
+        </button>
+
+        <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation" data-nav>
+          <a href="#services">Services</a>
+          <a href="#work">Gallery</a>
+          <a href="#service-area">Service area</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <a class="button button--small header-cta" href="#contact">
+          Free estimate <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" id="top">
+        <div class="container hero__grid">
+          <div class="hero__copy">
+            <p class="eyebrow">
+              <span aria-hidden="true"></span>
+              Residential landscapes · Greater Houston
+            </p>
+            <h1>Outdoor spaces, <em>handled with care.</em></h1>
+            <p class="hero__intro">
+              From dependable weekly upkeep to the landscape project you have
+              been imagining, TeROW helps your property feel welcoming,
+              finished, and easy to enjoy.
+            </p>
+            <div class="hero__actions">
+              <a class="button" href="#contact">
+                Request a free estimate <span aria-hidden="true">→</span>
+              </a>
+              <a class="button button--ghost" href={`tel:${business.phoneHref}`}>
+                Call {business.phoneDisplay}
+              </a>
+            </div>
+            <ul class="hero__trust" aria-label="Business highlights">
+              <li><span aria-hidden="true">✓</span> Fully insured</li>
+              <li><span aria-hidden="true">✓</span> English & Spanish</li>
+              <li><span aria-hidden="true">✓</span> Residential-first service</li>
+            </ul>
+          </div>
+
+          <div class="hero__visual">
+            <div class="hero__image-frame">
+              <Image
+                src={heroPatio}
+                alt="Finished residential patio with stone surfaces, a covered seating area, and a tidy yard"
+                widths={[640, 960, 1280, 1600]}
+                sizes="(max-width: 860px) 100vw, 50vw"
+                format="webp"
+                quality={84}
+                loading="eager"
+                fetchpriority="high"
+              />
+            </div>
+            <div class="hero__badge">
+              <span class="hero__badge-mark" aria-hidden="true">T</span>
+              <p><strong>Local care</strong><br />for every corner</p>
+            </div>
+            <p class="hero__caption">Patios · Planting · Lawn care</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="proof-strip" aria-label="Company information">
+        <div class="container proof-strip__grid">
+          <div class="proof-item">
+            <strong>{business.experience}</strong>
+            <span>serving local properties</span>
+          </div>
+          <div class="proof-item">
+            <strong>Residential +</strong>
+            <span>light commercial</span>
+          </div>
+          <div class="proof-item">
+            <strong>{business.languages}</strong>
+            <span>service available</span>
+          </div>
+          <div class="proof-item">
+            <strong>Mon–Sat</strong>
+            <span>convenient scheduling</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section services" id="services">
+        <div class="container">
+          <div class="section-heading section-heading--split">
+            <div>
+              <p class="eyebrow">
+                <span aria-hidden="true"></span>
+                What we do
+              </p>
+              <h2>Everything your yard needs to feel <em>well cared for.</em></h2>
+            </div>
+            <p>
+              One trusted team for routine upkeep, thoughtful improvements, and
+              the details that make an outdoor space feel complete.
+            </p>
+          </div>
+
+          <div class="service-grid">
+            {
+              featuredServices.map((service) => (
+                <article class="service-card">
+                  <span class="service-card__number">{service.number}</span>
+                  <h3>{service.title}</h3>
+                  <p>{service.description}</p>
+                  <a href="#contact">
+                    Ask about this service <span aria-hidden="true">→</span>
+                  </a>
+                </article>
+              ))
+            }
+          </div>
+
+          <div class="service-catalog">
+            <div class="service-catalog__heading">
+              <p class="overline">Complete service list</p>
+              <h3>Need something else?</h3>
+              <p>
+                Tell us what is happening on your property. We will help you
+                find the right next step.
+              </p>
+            </div>
+            <ul>
+              {
+                allServices.map((service) => (
+                  <li>
+                    <span aria-hidden="true">+</span>
+                    {service}
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section approach">
+        <div class="container approach__grid">
+          <div class="approach__visual">
+            <Image
+              src={gardenWalkway}
+              alt="A shaded landscaped walkway through a residential community"
+              widths={[480, 720, 960, 1200]}
+              sizes="(max-width: 860px) 100vw, 46vw"
+              format="webp"
+              quality={82}
+              loading="lazy"
+            />
+            <div class="approach__note">
+              <span aria-hidden="true">“</span>
+              <p>A yard should work for the way you actually live.</p>
+            </div>
+          </div>
+
+          <div class="approach__copy">
+            <p class="eyebrow eyebrow--light">
+              <span aria-hidden="true"></span>
+              A simpler experience
+            </p>
+            <h2>Clear communication. Thoughtful work. A cleaner finish.</h2>
+            <p class="approach__intro">
+              Landscaping is personal. We start by listening, recommend what
+              makes sense for the space, and keep you informed from the first
+              conversation to the final walkthrough.
+            </p>
+            <ol class="process-list">
+              {
+                processSteps.map((step) => (
+                  <li>
+                    <span>{step.number}</span>
+                    <div>
+                      <h3>{step.title}</h3>
+                      <p>{step.description}</p>
+                    </div>
+                  </li>
+                ))
+              }
+            </ol>
+            <a class="text-link text-link--light" href="#contact">
+              Start a conversation <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section gallery" id="work">
+        <div class="container">
+          <div class="section-heading section-heading--split section-heading--gallery">
+            <div>
+              <p class="eyebrow">
+                <span aria-hidden="true"></span>
+                Picture the possibilities
+              </p>
+              <h2>Care you can see from the <em>curb.</em></h2>
+            </div>
+            <div>
+              <p>
+                A look at the kinds of details and outdoor spaces we can help
+                you create and maintain.
+              </p>
+              <p class="sample-note">Sample imagery · Not TeROW project photography</p>
+            </div>
+          </div>
+
+          <div class="gallery-grid">
+            {
+              galleryItems.map((item, index) => (
+                <figure class={`gallery-card gallery-card--${index + 1}`}>
+                  <Image
+                    src={galleryImages[index]}
+                    alt={item.alt}
+                    widths={[480, 720, 960, 1200]}
+                    sizes={
+                      index === 0 || index === 5
+                        ? "(max-width: 720px) 100vw, 66vw"
+                        : "(max-width: 720px) 100vw, 34vw"
+                    }
+                    format="webp"
+                    quality={82}
+                    loading="lazy"
+                  />
+                  <figcaption>
+                    <span>{item.subtitle}</span>
+                    <strong>{item.title}</strong>
+                  </figcaption>
+                </figure>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <section class="section service-area" id="service-area">
+        <div class="container">
+          <div class="service-area__top">
+            <div>
+              <p class="eyebrow eyebrow--light">
+                <span aria-hidden="true"></span>
+                Where we work
+              </p>
+              <h2>Rooted in Houston. Ready to meet you nearby.</h2>
+            </div>
+            <a class="button button--cream" href="#contact">
+              Check your address <span aria-hidden="true">→</span>
+            </a>
+          </div>
+
+          <div class="area-layout">
+            <div class="area-map" aria-label="Illustrated Greater Houston service area">
+              <span class="area-map__ring area-map__ring--outer"></span>
+              <span class="area-map__ring area-map__ring--inner"></span>
+              <div class="area-map__center">
+                <span class="area-map__pin" aria-hidden="true"></span>
+                <strong>{serviceArea.primary}</strong>
+                <small>Primary service area</small>
+              </div>
+              <span class="area-map__city area-map__city--katy">Katy</span>
+              <span class="area-map__city area-map__city--cypress">Cypress</span>
+              <span class="area-map__city area-map__city--pearland">Pearland</span>
+              <span class="area-map__city area-map__city--sugar">Sugar Land</span>
+            </div>
+
+            <div class="area-details">
+              <div class="area-details__cities">
+                <p class="overline">Communities we serve</p>
+                <ul>
+                  <li>{serviceArea.primary}</li>
+                  {serviceArea.nearby.map((city) => <li>{city}</li>)}
+                  <li>Surrounding areas</li>
+                </ul>
+              </div>
+              <dl>
+                <div>
+                  <dt>Typical travel range</dt>
+                  <dd>{serviceArea.radius}</dd>
+                </div>
+                <div>
+                  <dt>Property types</dt>
+                  <dd>{serviceArea.customers}</dd>
+                </div>
+                <div>
+                  <dt>Outside the core area</dt>
+                  <dd>{serviceArea.travel}</dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact" id="contact">
+        <div class="container">
+          <div class="contact-shell">
+            <div class="contact-intro">
+              <p class="eyebrow">
+                <span aria-hidden="true"></span>
+                Request an estimate
+              </p>
+              <h2>Let’s make your outdoor to-do list feel lighter.</h2>
+              <p>
+                Tell us a little about your property and what you would like
+                help with. The more detail you share, the easier it is to start
+                with a useful conversation.
+              </p>
+
+              <div class="contact-details">
+                <a href={`tel:${business.phoneHref}`}>
+                  <span>Call us</span>
+                  <strong>{business.phoneDisplay}</strong>
+                </a>
+                <a href={`mailto:${business.email}`}>
+                  <span>Email us</span>
+                  <strong>{business.email}</strong>
+                </a>
+              </div>
+
+              <div class="contact-assurance">
+                <span aria-hidden="true">✓</span>
+                <p>
+                  <strong>No pressure, just a helpful first step.</strong>
+                  We will review your request and follow up with next steps.
+                </p>
+              </div>
+            </div>
+
+            <div class="form-panel">
+              <form id="estimate-form" novalidate data-estimate-form>
+                <div class="form-heading">
+                  <div>
+                    <p class="overline">Free estimate request</p>
+                    <h3>Tell us about your property</h3>
+                  </div>
+                  <span>Fields marked * are required</span>
+                </div>
+
+                <div
+                  class="form-summary"
+                  id="form-summary"
+                  role="alert"
+                  tabindex="-1"
+                  hidden
+                ></div>
+
+                <div class="form-grid form-grid--two">
+                  <div class="field">
+                    <label for="full-name">Full name *</label>
+                    <input
+                      id="full-name"
+                      name="fullName"
+                      type="text"
+                      autocomplete="name"
+                      required
+                      aria-describedby="full-name-error"
+                    />
+                    <p class="field-error" id="full-name-error"></p>
+                  </div>
+                  <div class="field">
+                    <label for="service">Service needed *</label>
+                    <select
+                      id="service"
+                      name="service"
+                      required
+                      aria-describedby="service-error"
+                    >
+                      <option value="">Choose a service</option>
+                      {
+                        serviceOptions.map((service) => (
+                          <option value={service}>{service}</option>
+                        ))
+                      }
+                      <option value="Irrigation or drainage">Irrigation or drainage</option>
+                      <option value="Cleanup or maintenance">Cleanup or maintenance</option>
+                      <option value="Something else">Something else</option>
+                    </select>
+                    <p class="field-error" id="service-error"></p>
+                  </div>
+                </div>
+
+                <fieldset class="field fieldset-field">
+                  <legend>Property type *</legend>
+                  <div class="choice-row">
+                    <label class="choice">
+                      <input type="radio" name="propertyType" value="Residential" />
+                      <span>Residential</span>
+                    </label>
+                    <label class="choice">
+                      <input type="radio" name="propertyType" value="Commercial" />
+                      <span>Commercial</span>
+                    </label>
+                  </div>
+                  <p class="field-error" id="property-type-error"></p>
+                </fieldset>
+
+                <div class="form-grid form-grid--two">
+                  <div class="field">
+                    <label for="phone">Phone number</label>
+                    <input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      inputmode="tel"
+                      autocomplete="tel"
+                      placeholder="(713) 555-0100"
+                      aria-describedby="contact-method-error"
+                    />
+                  </div>
+                  <div class="field">
+                    <label for="email">Email address</label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      inputmode="email"
+                      autocomplete="email"
+                      placeholder="you@example.com"
+                      aria-describedby="contact-method-error"
+                    />
+                  </div>
+                </div>
+                <p class="field-error field-error--group" id="contact-method-error"></p>
+
+                <div class="form-grid form-grid--two">
+                  <div class="field">
+                    <label for="contact-preference">Preferred contact</label>
+                    <select id="contact-preference" name="contactPreference">
+                      <option value="Phone">Phone call</option>
+                      <option value="Text">Text message</option>
+                      <option value="Email">Email</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="location">Project city or address *</label>
+                    <input
+                      id="location"
+                      name="location"
+                      type="text"
+                      autocomplete="street-address"
+                      placeholder="Houston, TX"
+                      required
+                      aria-describedby="location-error"
+                    />
+                    <p class="field-error" id="location-error"></p>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="project-details">What would you like help with? *</label>
+                  <textarea
+                    id="project-details"
+                    name="projectDetails"
+                    rows="5"
+                    minlength="20"
+                    required
+                    placeholder="Share the size of the area, what is happening now, and what you would like the finished space to feel like."
+                    aria-describedby="project-details-hint project-details-error"
+                  ></textarea>
+                  <div class="field-meta">
+                    <span id="project-details-hint">A few details help us prepare.</span>
+                    <span data-character-count>0 / 20 minimum</span>
+                  </div>
+                  <p class="field-error" id="project-details-error"></p>
+                </div>
+
+                <label class="consent">
+                  <input
+                    id="consent"
+                    name="consent"
+                    type="checkbox"
+                    required
+                    aria-describedby="consent-error"
+                  />
+                  <span>
+                    I agree that TeROW may contact me about this estimate request. *
+                  </span>
+                </label>
+                <p class="field-error" id="consent-error"></p>
+
+                <button class="button form-submit" type="submit">
+                  Send estimate request <span aria-hidden="true">→</span>
+                </button>
+                <p class="form-disclaimer">
+                  Demo mode: this form validates your details but does not send
+                  or store them yet.
+                </p>
+              </form>
+
+              <div class="form-success" role="status" tabindex="-1" hidden data-form-success>
+                <span class="form-success__mark" aria-hidden="true">✓</span>
+                <p class="overline">Form check complete</p>
+                <h3>Your request is ready for the next step.</h3>
+                <p>
+                  The form is working in demo mode. Your details were validated,
+                  but nothing was sent or saved. Connect a form service before
+                  the public launch.
+                </p>
+                <button class="button button--ghost" type="button" data-form-reset>
+                  Start another request
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="site-footer__top">
+          <div class="footer-brand">
+            <img
+              src="/terow-logo.png"
+              alt="TeROW Land Management Services"
+              width="1436"
+              height="584"
+              loading="lazy"
+            />
+            <p>
+              Friendly lawn and landscape care for homes and properties across
+              Greater Houston.
+            </p>
+          </div>
+
+          <div class="footer-column">
+            <p class="overline">Contact</p>
+            <a href={`tel:${business.phoneHref}`}>{business.phoneDisplay}</a>
+            <a href={`mailto:${business.email}`}>{business.email}</a>
+            <a href="#contact">Request an estimate</a>
+          </div>
+
+          <div class="footer-column">
+            <p class="overline">Hours</p>
+            {business.hours.map((line) => <span>{line}</span>)}
+          </div>
+
+          <div class="footer-column">
+            <p class="overline">Follow & review</p>
+            <a href={business.social.facebook} target="_blank" rel="noreferrer">
+              Facebook <span aria-hidden="true">↗</span>
+            </a>
+            <a href={business.social.instagram} target="_blank" rel="noreferrer">
+              Instagram <span aria-hidden="true">↗</span>
+            </a>
+            <a href={business.social.reviews} target="_blank" rel="noreferrer">
+              Google reviews <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="site-footer__bottom">
+          <p>© <span data-current-year></span> {business.name}. All rights reserved.</p>
+          <p>{business.credentials}</p>
+          <p class="demo-note">Demonstration content · Replace before launch</p>
+        </div>
+      </div>
+    </footer>
+
+    <div class="mobile-actions" aria-label="Quick contact">
+      <a href={`tel:${business.phoneHref}`}>Call now</a>
+      <a href="#contact">Free estimate</a>
+    </div>
+
+    <script>
+      const menuToggle = document.querySelector<HTMLButtonElement>("[data-menu-toggle]");
+      const nav = document.querySelector<HTMLElement>("[data-nav]");
+      const menuLabel = document.querySelector<HTMLElement>("[data-menu-label]");
+
+      const closeMenu = () => {
+        menuToggle?.setAttribute("aria-expanded", "false");
+        nav?.removeAttribute("data-open");
+        if (menuLabel) menuLabel.textContent = "Menu";
+      };
+
+      menuToggle?.addEventListener("click", () => {
+        const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+        menuToggle.setAttribute("aria-expanded", String(!isOpen));
+        nav?.toggleAttribute("data-open", !isOpen);
+        if (menuLabel) menuLabel.textContent = isOpen ? "Menu" : "Close";
+      });
+
+      nav?.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", closeMenu);
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeMenu();
+          menuToggle?.focus();
+        }
+      });
+
+      document.querySelectorAll("[data-current-year]").forEach((element) => {
+        element.textContent = String(new Date().getFullYear());
+      });
+
+      const form = document.querySelector<HTMLFormElement>("[data-estimate-form]");
+      const success = document.querySelector<HTMLElement>("[data-form-success]");
+      const resetButton = document.querySelector<HTMLButtonElement>("[data-form-reset]");
+      const summary = document.querySelector<HTMLElement>("#form-summary");
+      const details = document.querySelector<HTMLTextAreaElement>("#project-details")!;
+      const characterCount = document.querySelector<HTMLElement>("[data-character-count]");
+
+      const setError = (
+        input: HTMLElement | null,
+        message: string,
+        errorId: string,
+      ) => {
+        const error = document.querySelector<HTMLElement>(`#${errorId}`);
+        input?.setAttribute("aria-invalid", "true");
+        input?.closest(".field")?.setAttribute("data-invalid", "");
+        if (error) error.textContent = message;
+      };
+
+      const clearError = (input: HTMLElement | null, errorId: string) => {
+        const error = document.querySelector<HTMLElement>(`#${errorId}`);
+        input?.removeAttribute("aria-invalid");
+        input?.closest(".field")?.removeAttribute("data-invalid");
+        if (error) error.textContent = "";
+      };
+
+      const updateCharacterCount = () => {
+        if (details && characterCount) {
+          characterCount.textContent = `${details.value.length} / 20 minimum`;
+        }
+      };
+
+      details?.addEventListener("input", updateCharacterCount);
+
+      const validateForm = () => {
+        if (!form) return [];
+        const invalid: HTMLElement[] = [];
+        const fullName = form.querySelector<HTMLInputElement>("#full-name")!;
+        const service = form.querySelector<HTMLSelectElement>("#service")!;
+        const location = form.querySelector<HTMLInputElement>("#location")!;
+        const phone = form.querySelector<HTMLInputElement>("#phone")!;
+        const email = form.querySelector<HTMLInputElement>("#email")!;
+        const consent = form.querySelector<HTMLInputElement>("#consent")!;
+        const propertyType = form.querySelector<HTMLInputElement>(
+          'input[name="propertyType"]:checked',
+        );
+        const propertyChoices = form.querySelectorAll<HTMLInputElement>(
+          'input[name="propertyType"]',
+        );
+
+        clearError(fullName, "full-name-error");
+        clearError(service, "service-error");
+        clearError(location, "location-error");
+        clearError(details, "project-details-error");
+        clearError(consent, "consent-error");
+        clearError(phone, "contact-method-error");
+        clearError(email, "contact-method-error");
+        propertyChoices.forEach((choice) => choice.removeAttribute("aria-invalid"));
+          const propertyError =
+            document.querySelector<HTMLElement>("#property-type-error");
+        if (propertyError) propertyError.textContent = "";
+
+        if (!fullName?.value.trim()) {
+          setError(fullName, "Please enter your name.", "full-name-error");
+          invalid.push(fullName);
+        }
+        if (!service?.value) {
+          setError(service, "Please choose a service.", "service-error");
+          invalid.push(service);
+        }
+        if (!propertyType) {
+          propertyChoices.forEach((choice) =>
+            choice.setAttribute("aria-invalid", "true"),
+          );
+          if (propertyError) propertyError.textContent = "Please choose a property type.";
+          invalid.push(propertyChoices[0]);
+        }
+
+        const phoneValue = phone?.value.trim() ?? "";
+        const emailValue = email?.value.trim() ?? "";
+        const emailValid = !emailValue || email?.validity.valid;
+        const phoneDigits = phoneValue.replace(/\D/g, "");
+        const phoneValid = !phoneValue || phoneDigits.length >= 10;
+
+        if (!phoneValue && !emailValue) {
+          setError(phone, "Enter a phone number or email address.", "contact-method-error");
+          email?.setAttribute("aria-invalid", "true");
+          invalid.push(phone);
+        } else if (!phoneValid) {
+          setError(phone, "Enter a phone number with at least 10 digits.", "contact-method-error");
+          invalid.push(phone);
+        } else if (!emailValid) {
+          setError(email, "Enter a valid email address.", "contact-method-error");
+          invalid.push(email);
+        }
+
+        if (!location?.value.trim()) {
+          setError(location, "Please enter the project city or address.", "location-error");
+          invalid.push(location);
+        }
+        if (!details?.value.trim() || details.value.trim().length < 20) {
+          setError(
+            details,
+            "Please share at least 20 characters about the project.",
+            "project-details-error",
+          );
+          invalid.push(details);
+        }
+        if (!consent?.checked) {
+          setError(consent, "Please agree before continuing.", "consent-error");
+          invalid.push(consent);
+        }
+
+        return invalid;
+      };
+
+      form?.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const invalid = validateForm();
+
+        if (invalid.length > 0) {
+          if (summary) {
+            summary.textContent = `Please review ${invalid.length} ${
+              invalid.length === 1 ? "field" : "fields"
+            } and try again.`;
+            summary.hidden = false;
+          }
+          invalid[0]?.focus();
+          return;
+        }
+
+        if (summary) summary.hidden = true;
+        form.hidden = true;
+        if (success) {
+          success.hidden = false;
+          success.focus();
+        }
+      });
+
+      resetButton?.addEventListener("click", () => {
+        form?.reset();
+        updateCharacterCount();
+        if (success) success.hidden = true;
+        if (form) form.hidden = false;
+        if (summary) summary.hidden = true;
+        form?.querySelector<HTMLInputElement>("#full-name")?.focus();
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "name": "terow-landscaping",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "test:build": "node tests/build.test.mjs",
+    "test:form": "node tests/form.test.mjs",
+    "test:responsive": "node tests/responsive.test.mjs"
+  },
+  "dependencies": {
+    "astro": "^7.1.5"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "jsdom": "^29.1.1",
+    "playwright-core": "^1.62.0",
+    "typescript": "^6.0.3"
+  }
+}
