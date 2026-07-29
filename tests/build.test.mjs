@@ -4,7 +4,10 @@ import { JSDOM } from "jsdom";
 
 const distUrl = new URL("../dist/", import.meta.url);
 const html = await readFile(new URL("index.html", distUrl), "utf8");
-const dom = new JSDOM(html, { url: "https://example.com/" });
+const deploymentBase = "/TeROW";
+const dom = new JSDOM(html, {
+  url: `https://herrmannw.github.io${deploymentBase}/`,
+});
 const { document } = dom.window;
 
 assert.doesNotMatch(html, /\/@fs\/|\/_image\?|127\.0\.0\.1|localhost/);
@@ -31,7 +34,9 @@ for (const element of document.querySelectorAll("[srcset]")) {
 localReferences.add("/og.png");
 
 for (const reference of localReferences) {
-  const path = reference.replace(/^\//, "");
+  const path = reference.startsWith(`${deploymentBase}/`)
+    ? reference.slice(deploymentBase.length + 1)
+    : reference.replace(/^\//, "");
   await access(new URL(path, distUrl));
 }
 

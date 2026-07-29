@@ -6,7 +6,7 @@
 export const business = {
   name: "TeROW Land Management Services",
   shortName: "TeROW",
-  url: "https://example.com",
+  url: "https://herrmannw.github.io/TeROW/",
   phoneDisplay: "(713) 555-0148",
   phoneHref: "+17135550148",
   email: "hello@terow.example",

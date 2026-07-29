@@ -1,6 +1,8 @@
 # TeROW Land Management Services
 
-One-page Astro website prepared as a static Hostinger upload.
+One-page Astro website deployed as a static GitHub Pages site.
+
+Preview URL: <https://herrmannw.github.io/TeROW/>
 
 ## Update before launch
 
@@ -14,4 +16,10 @@ npm install
 npm run build
 ```
 
-Upload the contents of `dist/` to the website root (`public_html`) in Hostinger.
+## Deploy
+
+Push to `main` to run `.github/workflows/deploy.yml`.
+
+For the first deployment, open the repository's **Settings → Pages** screen
+and select **GitHub Actions** as the source. Future pushes to `main` deploy
+automatically.

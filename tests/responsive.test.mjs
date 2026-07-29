@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { mkdir } from "node:fs/promises";
 import { chromium } from "playwright-core";
 
-const baseUrl = "http://127.0.0.1:4321/";
+const baseUrl = "http://127.0.0.1:4321/TeROW/";
 const screenshotDir = "/tmp/terow-responsive";
 const viewports = [
   { width: 360, height: 800 },
