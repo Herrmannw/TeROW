@@ -145,20 +145,19 @@ try {
       await assert.doesNotReject(() =>
         page.locator("#form-summary").waitFor({ state: "visible" }),
       );
-      assert.match(await page.locator("#form-summary").innerText(), /7 fields/);
+      assert.match(await page.locator("#form-summary").innerText(), /8 fields/);
 
       await page.locator("#full-name").fill("Taylor Green");
+      await page.locator("#organization").fill("Bayou Commerce District");
+      await page.locator("#property-type").selectOption("MUD districts");
       await page
         .locator("#service")
-        .selectOption({ label: "Lawn care & maintenance" });
-      await page
-        .locator('input[name="propertyType"][value="Residential"]')
-        .check();
+        .selectOption({ label: "Large-tract mowing & tractor service" });
       await page.locator("#email").fill("taylor@example.com");
       await page.locator("#location").fill("Houston, TX");
       await page
         .locator("#project-details")
-        .fill("Weekly mowing and edging for the front and back lawn.");
+        .fill("Recurring mowing for two commercial tracts totaling about 18 acres.");
       await page.locator("#consent").check();
       await page.locator(".form-submit").click();
       await assert.doesNotReject(() =>
@@ -166,11 +165,11 @@ try {
       );
       assert.match(
         await page.locator("[data-form-success]").innerText(),
-        /nothing was sent or saved/,
+        /not transmitted or saved/,
       );
       await page.locator("[data-form-reset]").click();
       await assert.doesNotReject(() =>
-        page.locator("[data-estimate-form]").waitFor({ state: "visible" }),
+        page.locator("[data-assessment-form]").waitFor({ state: "visible" }),
       );
 
       await page.screenshot({

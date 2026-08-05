@@ -1,19 +1,38 @@
-# Placeholder photo sources
+# Photo sources and processing
 
-The website’s gallery uses free-to-use placeholder photography from Pexels.
-These images are examples and do not represent work completed by TeROW.
+## TeROW-owned photography
 
-- Patio: “Modern outdoor patio with seating and TV,” Pexels photo 36777954.
-  Source: https://www.pexels.com/photo/modern-outdoor-patio-with-seating-and-tv-36777954/
-- Lawn maintenance: “Person using lawn mower,” Pascal Küffer, Pexels photo 11364122.
-  Source: https://www.pexels.com/photo/person-using-lawn-mower-11364122/
-- Shrub trimming: “Maintenance man controlling a lawn mower,” Gustavo Fring, Pexels photo 4920288.
-  Source: https://www.pexels.com/photo/maintenance-man-controlling-a-lawn-mower-4920288/
-- Flower beds: “Vibrant flower bed with multicolored blooms,” Pexels photo 36581707.
-  Source: https://www.pexels.com/photo/vibrant-flower-bed-with-multicolored-blooms-36581707/
-- Sod installation: Pexels photo 5231237.
-  Source: https://www.pexels.com/photo/5231237/
-- Garden walkway: “Walkway through the yard,” Berna Elif, Pexels photo 18126918.
-  Source: https://www.pexels.com/photo/walkway-through-the-yard-18126918/
+The following source images were supplied by TeROW and are used as authentic
+company photography. Processing was limited to removing black letterbox bands,
+exporting to JPEG, and normal web compression. No generative fill, retouching,
+or equipment/property alteration was applied.
+
+- `IMG_9398.png` → `commercial-tractor-transport.jpg` — hero tractor transport.
+  Pixel-preserving crop: `1290×1720+0+538`.
+- `IMG_9397.png` → `commercial-tract-mowing.jpg` — commercial tract mowing.
+  Pixel-preserving crop: `1290×968+0+914`.
+- `IMG_9396.png` → `commercial-ditch-mowing.jpg` — ditch and vegetation mowing.
+  Pixel-preserving crop: `1290×968+0+914`.
+- `IMG_9404.png` → `commercial-batwing-mowing.jpg` — tractor and batwing mower.
+  Pixel-preserving crop: `1290×968+0+914`.
+- `IMG_9406.png` → `commercial-pond-mowing.jpg` — drainage pond and ditch mowing.
+  Pixel-preserving crop: `1290×968+0+914`.
+- `IMG_9399.png` → `commercial-fleet.jpg` — fleet and equipment capability.
+  Pixel-preserving crop: `1290×726+0+1035`.
+
+The social-sharing graphic uses the TeROW logo and
+`commercial-tract-mowing.jpg` in a branded 1200×630 layout.
+
+## Licensed sample photography
+
+These two cards are labeled “Sample imagery” on the page and do not represent
+work completed by TeROW.
+
+- Seasonal color: “Vibrant flower bed with multicolored blooms,” Pexels photo
+  36581707. Source:
+  https://www.pexels.com/photo/vibrant-flower-bed-with-multicolored-blooms-36581707/
+- Landscaped walkway: “Walkway through the yard,” Berna Elif, Pexels photo
+  18126918. Source:
+  https://www.pexels.com/photo/walkway-through-the-yard-18126918/
 
 Pexels license: https://www.pexels.com/license/

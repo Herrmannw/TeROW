@@ -1,33 +1,36 @@
 ---
 import { Image } from "astro:assets";
-import heroPatio from "../assets/images/hero-patio.jpg";
-import lawnMowing from "../assets/images/lawn-mowing.jpg";
-import shrubTrimming from "../assets/images/shrub-trimming.jpg";
+import heroTractor from "../assets/images/commercial/commercial-tractor-transport.jpg";
+import tractMowing from "../assets/images/commercial/commercial-tract-mowing.jpg";
+import ditchMowing from "../assets/images/commercial/commercial-ditch-mowing.jpg";
+import batwingMowing from "../assets/images/commercial/commercial-batwing-mowing.jpg";
+import pondMowing from "../assets/images/commercial/commercial-pond-mowing.jpg";
+import commercialFleet from "../assets/images/commercial/commercial-fleet.jpg";
 import flowerBed from "../assets/images/flower-bed.jpg";
-import sodInstallation from "../assets/images/sod-installation.jpg";
 import gardenWalkway from "../assets/images/garden-walkway.jpg";
 import {
   allServices,
   business,
   featuredServices,
   galleryItems,
+  marketsServed,
   processSteps,
   serviceArea,
 } from "../data/site";
 import "../styles/global.css";
 
-const pageTitle = `${business.name} | Houston Landscaping`;
+const pageTitle = "Commercial Landscaping & Land Management | TeROW Houston";
 const description =
-  "Friendly, dependable lawn care, landscape installation, sod, flower beds, trimming, patios, and more across Greater Houston.";
+  "Commercial landscaping and land management across Greater Houston, including grounds maintenance, tractor mowing, land clearing, irrigation, landscape installation, and exterior site improvements.";
 const publicAsset = (fileName: string) =>
   `${import.meta.env.BASE_URL.replace(/\/$/, "")}/${fileName.replace(/^\/+/, "")}`;
 const ogImage = new URL("og.png", business.url).toString();
 const galleryImages = [
-  heroPatio,
-  lawnMowing,
-  shrubTrimming,
+  ditchMowing,
+  batwingMowing,
+  pondMowing,
+  commercialFleet,
   flowerBed,
-  sodInstallation,
   gardenWalkway,
 ];
 const serviceOptions = featuredServices.map((service) => service.title);
@@ -59,7 +62,7 @@ const serviceOptions = featuredServices.map((service) => service.title);
 
     <div class="utility-bar">
       <div class="container utility-bar__inner">
-        <p>Serving Houston and surrounding communities</p>
+        <p>Commercial land management across Greater Houston</p>
         <div class="utility-bar__links">
           <span>Mon–Fri 7–6 · Sat 8–4</span>
           <a href={`tel:${business.phoneHref}`}>{business.phoneDisplay}</a>
@@ -92,14 +95,15 @@ const serviceOptions = featuredServices.map((service) => service.title);
         </button>
 
         <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation" data-nav>
+          <a href="#markets">Markets</a>
           <a href="#services">Services</a>
-          <a href="#work">Gallery</a>
-          <a href="#service-area">Service area</a>
+          <a href="#work">Work</a>
+          <a href="#coverage">Coverage</a>
           <a href="#contact">Contact</a>
         </nav>
 
         <a class="button button--small header-cta" href="#contact">
-          Free estimate <span aria-hidden="true">↗</span>
+          Request a Site Assessment <span aria-hidden="true">↗</span>
         </a>
       </div>
     </header>
@@ -110,17 +114,17 @@ const serviceOptions = featuredServices.map((service) => service.title);
           <div class="hero__copy">
             <p class="eyebrow">
               <span aria-hidden="true"></span>
-              Residential landscapes · Greater Houston
+              Commercial landscaping & land management · Greater Houston
             </p>
-            <h1>Outdoor spaces, <em>handled with care.</em></h1>
+            <h1>Commercial grounds, <em>managed from curb to acreage.</em></h1>
             <p class="hero__intro">
-              From dependable weekly upkeep to the landscape project you have
-              been imagining, TeROW helps your property feel welcoming,
-              finished, and easy to enjoy.
+              TeROW supports commercial facilities, municipalities, MUDs,
+              HOAs, retail centers, logistics sites, and large properties with
+              dependable grounds, mowing, clearing, irrigation, and site work.
             </p>
             <div class="hero__actions">
               <a class="button" href="#contact">
-                Request a free estimate <span aria-hidden="true">→</span>
+                Request a Site Assessment <span aria-hidden="true">→</span>
               </a>
               <a class="button button--ghost" href={`tel:${business.phoneHref}`}>
                 Call {business.phoneDisplay}
@@ -128,17 +132,17 @@ const serviceOptions = featuredServices.map((service) => service.title);
             </div>
             <ul class="hero__trust" aria-label="Business highlights">
               <li><span aria-hidden="true">✓</span> Fully insured</li>
+              <li><span aria-hidden="true">✓</span> Commercial-grade equipment</li>
               <li><span aria-hidden="true">✓</span> English & Spanish</li>
-              <li><span aria-hidden="true">✓</span> Residential-first service</li>
             </ul>
           </div>
 
           <div class="hero__visual">
             <div class="hero__image-frame">
               <Image
-                src={heroPatio}
-                alt="Finished residential patio with stone surfaces, a covered seating area, and a tidy yard"
-                widths={[640, 960, 1280, 1600]}
+                src={heroTractor}
+                alt="TeROW commercial tractor secured on a transport trailer and ready to mobilize"
+                widths={[640, 960, 1280]}
                 sizes="(max-width: 860px) 100vw, 50vw"
                 format="webp"
                 quality={84}
@@ -148,9 +152,9 @@ const serviceOptions = featuredServices.map((service) => service.title);
             </div>
             <div class="hero__badge">
               <span class="hero__badge-mark" aria-hidden="true">T</span>
-              <p><strong>Local care</strong><br />for every corner</p>
+              <p><strong>Site-ready</strong><br />equipment capability</p>
             </div>
-            <p class="hero__caption">Patios · Planting · Lawn care</p>
+            <p class="hero__caption">Commercial grounds · Acreage mowing · Site services</p>
           </div>
         </div>
       </section>
@@ -159,20 +163,43 @@ const serviceOptions = featuredServices.map((service) => service.title);
         <div class="container proof-strip__grid">
           <div class="proof-item">
             <strong>{business.experience}</strong>
-            <span>serving local properties</span>
+            <span>land management experience</span>
           </div>
           <div class="proof-item">
-            <strong>Residential +</strong>
-            <span>light commercial</span>
+            <strong>Commercial + public sector</strong>
+            <span>property programs</span>
+          </div>
+          <div class="proof-item">
+            <strong>Large-site capability</strong>
+            <span>tractors and batwing mowing</span>
           </div>
           <div class="proof-item">
             <strong>{business.languages}</strong>
-            <span>service available</span>
+            <span>responsive coordination</span>
           </div>
-          <div class="proof-item">
-            <strong>Mon–Sat</strong>
-            <span>convenient scheduling</span>
+        </div>
+      </section>
+
+      <section class="section markets" id="markets">
+        <div class="container">
+          <div class="section-heading section-heading--compact">
+            <p class="eyebrow">
+              <span aria-hidden="true"></span>
+              Markets we serve
+            </p>
+            <h2>Built for public, commercial, and community properties.</h2>
           </div>
+
+          <ul class="market-grid">
+            {
+              marketsServed.map((market) => (
+                <li>
+                  <span aria-hidden="true"></span>
+                  <strong>{market}</strong>
+                </li>
+              ))
+            }
+          </ul>
         </div>
       </section>
 
@@ -181,9 +208,9 @@ const serviceOptions = featuredServices.map((service) => service.title);
           <div class="section-heading">
             <p class="eyebrow">
               <span aria-hidden="true"></span>
-              What we do
+              Commercial capabilities
             </p>
-            <h2>Everything your yard needs to feel <em>well cared for.</em></h2>
+            <h2>The equipment and expertise to maintain property <em>at scale.</em></h2>
           </div>
 
           <div class="service-grid">
@@ -193,7 +220,7 @@ const serviceOptions = featuredServices.map((service) => service.title);
                   <h3>{service.title}</h3>
                   <p>{service.description}</p>
                   <a href="#contact">
-                    Ask about this service <span aria-hidden="true">→</span>
+                    Request a Site Assessment <span aria-hidden="true">→</span>
                   </a>
                 </article>
               ))
@@ -202,11 +229,11 @@ const serviceOptions = featuredServices.map((service) => service.title);
 
           <div class="service-catalog">
             <div class="service-catalog__heading">
-              <p class="overline">Complete service list</p>
-              <h3>Need something else?</h3>
+              <p class="overline">Complete capability list</p>
+              <h3>One partner for the site.</h3>
               <p>
-                Tell us what is happening on your property. We will help you
-                find the right next step.
+                Scope recurring maintenance, specialized mowing, landscape
+                improvements, and multi-location work around your operational needs.
               </p>
             </div>
             <ul>
@@ -227,8 +254,8 @@ const serviceOptions = featuredServices.map((service) => service.title);
         <div class="container approach__grid">
           <div class="approach__visual">
             <Image
-              src={gardenWalkway}
-              alt="A shaded landscaped walkway through a residential community"
+              src={tractMowing}
+              alt="TeROW tractor mowing an expansive commercial tract beside a curb"
               widths={[480, 720, 960, 1200]}
               sizes="(max-width: 860px) 100vw, 46vw"
               format="webp"
@@ -237,20 +264,20 @@ const serviceOptions = featuredServices.map((service) => service.title);
             />
             <div class="approach__note">
               <span aria-hidden="true">“</span>
-              <p>A yard should work for the way you actually live.</p>
+              <p>Built for acreage, access, and recurring service schedules.</p>
             </div>
           </div>
 
           <div class="approach__copy">
             <p class="eyebrow eyebrow--light">
               <span aria-hidden="true"></span>
-              A simpler experience
+              How we work
             </p>
-            <h2>Clear communication. Thoughtful work. A cleaner finish.</h2>
+            <h2>Clear scope. Reliable scheduling. Accountable work.</h2>
             <p class="approach__intro">
-              Landscaping is personal. We start by listening, recommend what
-              makes sense for the space, and keep you informed from the first
-              conversation to the final walkthrough.
+              Commercial property care starts with a practical understanding
+              of access, acreage, conditions, stakeholders, and service
+              expectations. We turn those needs into a clear plan for the site.
             </p>
             <ol class="process-list">
               {
@@ -274,12 +301,10 @@ const serviceOptions = featuredServices.map((service) => service.title);
           <div class="section-heading">
             <p class="eyebrow">
               <span aria-hidden="true"></span>
-              Picture the possibilities
+              Field capability
             </p>
-            <h2>Care you can see from the <em>curb.</em></h2>
+            <h2>Commercial capability, proven <em>in the field.</em></h2>
           </div>
-
-          <p class="sample-note">Sample imagery · Not TeROW project photography</p>
 
           <div class="gallery-grid">
             {
@@ -298,6 +323,7 @@ const serviceOptions = featuredServices.map((service) => service.title);
                     quality={82}
                     loading="lazy"
                   />
+                  {item.sample && <small class="gallery-card__sample">Sample imagery</small>}
                   <figcaption>
                     <span>{item.subtitle}</span>
                     <strong>{item.title}</strong>
@@ -309,24 +335,24 @@ const serviceOptions = featuredServices.map((service) => service.title);
         </div>
       </section>
 
-      <section class="section service-area" id="service-area">
+      <section class="section service-area" id="coverage">
         <div class="container">
           <div class="service-area__top">
             <p class="eyebrow eyebrow--light">
               <span aria-hidden="true"></span>
-              Where we work
+              Greater Houston coverage
             </p>
-            <h2>Rooted in Houston. Ready to meet you nearby.</h2>
+            <h2>Serving commercial properties across Greater Houston.</h2>
           </div>
 
           <div class="area-layout">
-            <div class="area-map" aria-label="Illustrated Greater Houston service area">
+            <div class="area-map" aria-label="Illustrated Greater Houston coverage region">
               <span class="area-map__ring area-map__ring--outer"></span>
               <span class="area-map__ring area-map__ring--inner"></span>
               <div class="area-map__center">
                 <span class="area-map__pin" aria-hidden="true"></span>
                 <strong>{serviceArea.primary}</strong>
-                <small>Primary service area</small>
+                <small>Regional operations</small>
               </div>
               <span class="area-map__city area-map__city--katy">Katy</span>
               <span class="area-map__city area-map__city--cypress">Cypress</span>
@@ -336,25 +362,29 @@ const serviceOptions = featuredServices.map((service) => service.title);
 
             <div class="area-details">
               <div class="area-details__cities">
-                <p class="overline">Communities we serve</p>
+                <p class="overline">Regional coverage</p>
                 <ul>
                   <li>{serviceArea.primary}</li>
                   {serviceArea.nearby.map((city) => <li>{city}</li>)}
-                  <li>Surrounding areas</li>
+                  <li>Surrounding communities</li>
                 </ul>
               </div>
               <dl>
                 <div>
-                  <dt>Typical travel range</dt>
-                  <dd>{serviceArea.radius}</dd>
+                  <dt>Coverage area</dt>
+                  <dd>{serviceArea.region}</dd>
                 </div>
                 <div>
-                  <dt>Property types</dt>
-                  <dd>{serviceArea.customers}</dd>
+                  <dt>Account structure</dt>
+                  <dd>{serviceArea.siteTypes}</dd>
                 </div>
                 <div>
-                  <dt>Outside the core area</dt>
-                  <dd>{serviceArea.travel}</dd>
+                  <dt>Engagements</dt>
+                  <dd>{serviceArea.engagementTypes}</dd>
+                </div>
+                <div>
+                  <dt>Project planning</dt>
+                  <dd>{serviceArea.coverage}</dd>
                 </div>
               </dl>
             </div>
@@ -368,13 +398,13 @@ const serviceOptions = featuredServices.map((service) => service.title);
             <div class="contact-intro">
               <p class="eyebrow">
                 <span aria-hidden="true"></span>
-                Request an estimate
+                Request a Site Assessment
               </p>
-              <h2>Let’s make your outdoor to-do list feel lighter.</h2>
+              <h2>Let’s walk the site and scope the work.</h2>
               <p>
-                Tell us a little about your property and what you would like
-                help with. The more detail you share, the easier it is to start
-                with a useful conversation.
+                Share the property, priorities, service frequency, and
+                procurement needs. We will review the opportunity and coordinate
+                a practical next step for your organization.
               </p>
 
               <div class="contact-details">
@@ -391,18 +421,18 @@ const serviceOptions = featuredServices.map((service) => service.title);
               <div class="contact-assurance">
                 <span aria-hidden="true">✓</span>
                 <p>
-                  <strong>No pressure, just a helpful first step.</strong>
-                  We will review your request and follow up with next steps.
+                  <strong>A focused first step for the property.</strong>
+                  We will use your details to prepare for a useful site discussion.
                 </p>
               </div>
             </div>
 
             <div class="form-panel">
-              <form id="estimate-form" novalidate data-estimate-form>
+              <form id="site-assessment-form" novalidate data-assessment-form>
                 <div class="form-heading">
                   <div>
-                    <p class="overline">Free estimate request</p>
-                    <h3>Tell us about your property</h3>
+                    <p class="overline">Commercial site-assessment request</p>
+                    <h3>Tell us about the property</h3>
                   </div>
                   <span>Fields marked * are required</span>
                 </div>
@@ -417,7 +447,7 @@ const serviceOptions = featuredServices.map((service) => service.title);
 
                 <div class="form-grid form-grid--two">
                   <div class="field">
-                    <label for="full-name">Full name *</label>
+                    <label for="full-name">Contact name *</label>
                     <input
                       id="full-name"
                       name="fullName"
@@ -429,7 +459,39 @@ const serviceOptions = featuredServices.map((service) => service.title);
                     <p class="field-error" id="full-name-error"></p>
                   </div>
                   <div class="field">
-                    <label for="service">Service needed *</label>
+                    <label for="organization">Organization or company *</label>
+                    <input
+                      id="organization"
+                      name="organization"
+                      type="text"
+                      autocomplete="organization"
+                      required
+                      aria-describedby="organization-error"
+                    />
+                    <p class="field-error" id="organization-error"></p>
+                  </div>
+                </div>
+
+                <div class="form-grid form-grid--two">
+                  <div class="field">
+                    <label for="property-type">Client or property type *</label>
+                    <select
+                      id="property-type"
+                      name="propertyType"
+                      required
+                      aria-describedby="property-type-error"
+                    >
+                      <option value="">Choose a property type</option>
+                      {
+                        marketsServed.map((market) => (
+                          <option value={market}>{market}</option>
+                        ))
+                      }
+                    </select>
+                    <p class="field-error" id="property-type-error"></p>
+                  </div>
+                  <div class="field">
+                    <label for="service">Primary service needed *</label>
                     <select
                       id="service"
                       name="service"
@@ -442,28 +504,34 @@ const serviceOptions = featuredServices.map((service) => service.title);
                           <option value={service}>{service}</option>
                         ))
                       }
-                      <option value="Irrigation or drainage">Irrigation or drainage</option>
-                      <option value="Cleanup or maintenance">Cleanup or maintenance</option>
+                      <option value="Recurring commercial maintenance">Recurring commercial maintenance</option>
+                      <option value="Multi-site maintenance">Multi-site maintenance</option>
                       <option value="Something else">Something else</option>
                     </select>
                     <p class="field-error" id="service-error"></p>
                   </div>
                 </div>
 
-                <fieldset class="field fieldset-field">
-                  <legend>Property type *</legend>
-                  <div class="choice-row">
-                    <label class="choice">
-                      <input type="radio" name="propertyType" value="Residential" />
-                      <span>Residential</span>
-                    </label>
-                    <label class="choice">
-                      <input type="radio" name="propertyType" value="Commercial" />
-                      <span>Commercial</span>
-                    </label>
+                <div class="form-grid form-grid--two">
+                  <div class="field">
+                    <label for="site-size">Approximate acreage or site size</label>
+                    <input
+                      id="site-size"
+                      name="siteSize"
+                      type="text"
+                      placeholder="Example: 12 acres or 3 locations"
+                    />
                   </div>
-                  <p class="field-error" id="property-type-error"></p>
-                </fieldset>
+                  <div class="field">
+                    <label for="engagement-type">Engagement type</label>
+                    <select id="engagement-type" name="engagementType">
+                      <option value="Not sure">Not sure yet</option>
+                      <option value="Recurring maintenance">Recurring maintenance</option>
+                      <option value="One-time project">One-time project</option>
+                      <option value="Bid/RFP">Bid/RFP</option>
+                    </select>
+                  </div>
+                </div>
 
                 <div class="form-grid form-grid--two">
                   <div class="field">
@@ -474,7 +542,7 @@ const serviceOptions = featuredServices.map((service) => service.title);
                       type="tel"
                       inputmode="tel"
                       autocomplete="tel"
-                      placeholder="(713) 555-0100"
+                      placeholder="832-692-4434"
                       aria-describedby="contact-method-error"
                     />
                   </div>
@@ -486,7 +554,7 @@ const serviceOptions = featuredServices.map((service) => service.title);
                       type="email"
                       inputmode="email"
                       autocomplete="email"
-                      placeholder="you@example.com"
+                      placeholder="name@organization.com"
                       aria-describedby="contact-method-error"
                     />
                   </div>
@@ -503,7 +571,7 @@ const serviceOptions = featuredServices.map((service) => service.title);
                     </select>
                   </div>
                   <div class="field">
-                    <label for="location">Project city or address *</label>
+                    <label for="location">Site city or address *</label>
                     <input
                       id="location"
                       name="location"
@@ -518,18 +586,18 @@ const serviceOptions = featuredServices.map((service) => service.title);
                 </div>
 
                 <div class="field">
-                  <label for="project-details">What would you like help with? *</label>
+                  <label for="project-details">Site and scope details *</label>
                   <textarea
                     id="project-details"
                     name="projectDetails"
-                    rows="5"
+                    rows="6"
                     minlength="20"
                     required
-                    placeholder="Share the size of the area, what is happening now, and what you would like the finished space to feel like."
+                    placeholder="Share the acreage or site size, number of locations, current conditions, desired service frequency, deadline, and any procurement requirements."
                     aria-describedby="project-details-hint project-details-error"
                   ></textarea>
                   <div class="field-meta">
-                    <span id="project-details-hint">A few details help us prepare.</span>
+                    <span id="project-details-hint">A few operational details help us prepare.</span>
                     <span data-character-count>0 / 20 minimum</span>
                   </div>
                   <p class="field-error" id="project-details-error"></p>
@@ -544,28 +612,28 @@ const serviceOptions = featuredServices.map((service) => service.title);
                     aria-describedby="consent-error"
                   />
                   <span>
-                    I agree that TeROW may contact me about this estimate request. *
+                    I agree that TeROW may contact me about this site-assessment request. *
                   </span>
                 </label>
                 <p class="field-error" id="consent-error"></p>
 
                 <button class="button form-submit" type="submit">
-                  Send estimate request <span aria-hidden="true">→</span>
+                  Request a Site Assessment <span aria-hidden="true">→</span>
                 </button>
                 <p class="form-disclaimer">
-                  Demo mode: this form validates your details but does not send
-                  or store them yet.
+                  Demo mode: this form validates your details but does not send,
+                  store, or transmit them.
                 </p>
               </form>
 
               <div class="form-success" role="status" tabindex="-1" hidden data-form-success>
                 <span class="form-success__mark" aria-hidden="true">✓</span>
-                <p class="overline">Form check complete</p>
-                <h3>Your request is ready for the next step.</h3>
+                <p class="overline">Commercial request validated</p>
+                <h3>Your site-assessment request is ready.</h3>
                 <p>
-                  The form is working in demo mode. Your details were validated,
-                  but nothing was sent or saved. Connect a form service before
-                  the public launch.
+                  The form is working in demo mode. Your commercial request was
+                  validated, but it was not transmitted or saved. Connect a form
+                  service before the public launch.
                 </p>
                 <button class="button button--ghost" type="button" data-form-reset>
                   Start another request
@@ -589,8 +657,9 @@ const serviceOptions = featuredServices.map((service) => service.title);
               loading="lazy"
             />
             <p>
-              Friendly lawn and landscape care for homes and properties across
-              Greater Houston.
+              Commercial landscaping and land management for public,
+              commercial, industrial, retail, HOA, and large-acreage properties
+              across Greater Houston.
             </p>
           </div>
 
@@ -598,7 +667,7 @@ const serviceOptions = featuredServices.map((service) => service.title);
             <p class="overline">Contact</p>
             <a href={`tel:${business.phoneHref}`}>{business.phoneDisplay}</a>
             <a href={`mailto:${business.email}`}>{business.email}</a>
-            <a href="#contact">Request an estimate</a>
+            <a href="#contact">Request a Site Assessment</a>
           </div>
 
           <div class="footer-column">
@@ -630,7 +699,7 @@ const serviceOptions = featuredServices.map((service) => service.title);
 
     <div class="mobile-actions" aria-label="Quick contact">
       <a href={`tel:${business.phoneHref}`}>Call now</a>
-      <a href="#contact">Free estimate</a>
+      <a href="#contact">Request a Site Assessment</a>
     </div>
 
     <script>
@@ -666,7 +735,7 @@ const serviceOptions = featuredServices.map((service) => service.title);
         element.textContent = String(new Date().getFullYear());
       });
 
-      const form = document.querySelector<HTMLFormElement>("[data-estimate-form]");
+      const form = document.querySelector<HTMLFormElement>("[data-assessment-form]");
       const success = document.querySelector<HTMLElement>("[data-form-success]");
       const resetButton = document.querySelector<HTMLButtonElement>("[data-form-reset]");
       const summary = document.querySelector<HTMLElement>("#form-summary");
@@ -703,44 +772,47 @@ const serviceOptions = featuredServices.map((service) => service.title);
         if (!form) return [];
         const invalid: HTMLElement[] = [];
         const fullName = form.querySelector<HTMLInputElement>("#full-name")!;
+        const organization = form.querySelector<HTMLInputElement>("#organization")!;
+        const propertyType = form.querySelector<HTMLSelectElement>("#property-type")!;
         const service = form.querySelector<HTMLSelectElement>("#service")!;
         const location = form.querySelector<HTMLInputElement>("#location")!;
         const phone = form.querySelector<HTMLInputElement>("#phone")!;
         const email = form.querySelector<HTMLInputElement>("#email")!;
         const consent = form.querySelector<HTMLInputElement>("#consent")!;
-        const propertyType = form.querySelector<HTMLInputElement>(
-          'input[name="propertyType"]:checked',
-        );
-        const propertyChoices = form.querySelectorAll<HTMLInputElement>(
-          'input[name="propertyType"]',
-        );
 
         clearError(fullName, "full-name-error");
+        clearError(organization, "organization-error");
+        clearError(propertyType, "property-type-error");
         clearError(service, "service-error");
         clearError(location, "location-error");
         clearError(details, "project-details-error");
         clearError(consent, "consent-error");
         clearError(phone, "contact-method-error");
         clearError(email, "contact-method-error");
-        propertyChoices.forEach((choice) => choice.removeAttribute("aria-invalid"));
-          const propertyError =
-            document.querySelector<HTMLElement>("#property-type-error");
-        if (propertyError) propertyError.textContent = "";
 
         if (!fullName?.value.trim()) {
-          setError(fullName, "Please enter your name.", "full-name-error");
+          setError(fullName, "Please enter the contact name.", "full-name-error");
           invalid.push(fullName);
         }
-        if (!service?.value) {
-          setError(service, "Please choose a service.", "service-error");
-          invalid.push(service);
-        }
-        if (!propertyType) {
-          propertyChoices.forEach((choice) =>
-            choice.setAttribute("aria-invalid", "true"),
+        if (!organization?.value.trim()) {
+          setError(
+            organization,
+            "Please enter the organization or company.",
+            "organization-error",
           );
-          if (propertyError) propertyError.textContent = "Please choose a property type.";
-          invalid.push(propertyChoices[0]);
+          invalid.push(organization);
+        }
+        if (!propertyType?.value) {
+          setError(
+            propertyType,
+            "Please choose a client or property type.",
+            "property-type-error",
+          );
+          invalid.push(propertyType);
+        }
+        if (!service?.value) {
+          setError(service, "Please choose a primary service.", "service-error");
+          invalid.push(service);
         }
 
         const phoneValue = phone?.value.trim() ?? "";
@@ -762,13 +834,13 @@ const serviceOptions = featuredServices.map((service) => service.title);
         }
 
         if (!location?.value.trim()) {
-          setError(location, "Please enter the project city or address.", "location-error");
+          setError(location, "Please enter the site city or address.", "location-error");
           invalid.push(location);
         }
         if (!details?.value.trim() || details.value.trim().length < 20) {
           setError(
             details,
-            "Please share at least 20 characters about the project.",
+            "Please share at least 20 characters about the site and scope.",
             "project-details-error",
           );
           invalid.push(details);

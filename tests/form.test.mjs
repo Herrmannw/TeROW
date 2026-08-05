@@ -13,18 +13,18 @@ const siteScript = [...document.querySelectorAll("script")].at(-1);
 assert.ok(siteScript?.textContent, "The production interaction script is present.");
 dom.window.eval(siteScript.textContent);
 
-const form = document.querySelector("#estimate-form");
+const form = document.querySelector("#site-assessment-form");
 const success = document.querySelector("[data-form-success]");
 const summary = document.querySelector("#form-summary");
 
-assert.ok(form && success && summary, "The estimate form and feedback regions exist.");
+assert.ok(form && success && summary, "The assessment form and feedback regions exist.");
 
 const submit = () =>
   form.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
 
 submit();
 assert.equal(summary.hidden, false, "Blank submission shows the error summary.");
-assert.match(summary.textContent, /7 fields/, "Every required field group is counted.");
+assert.match(summary.textContent, /8 fields/, "Every required field group is counted.");
 assert.match(
   document.querySelector("#contact-method-error").textContent,
   /phone number or email/,
@@ -37,12 +37,12 @@ assert.equal(
 );
 
 document.querySelector("#full-name").value = "Taylor Green";
-document.querySelector("#service").value = "Lawn care & maintenance";
-document.querySelector('input[name="propertyType"][value="Residential"]').checked =
-  true;
+document.querySelector("#organization").value = "Bayou Commerce District";
+document.querySelector("#property-type").value = "MUD districts";
+document.querySelector("#service").value = "Large-tract mowing & tractor service";
 document.querySelector("#location").value = "Houston, TX";
 document.querySelector("#project-details").value =
-  "Weekly mowing and edging for the front and back lawn.";
+  "Recurring mowing for two commercial tracts totaling about 18 acres.";
 document
   .querySelector("#project-details")
   .dispatchEvent(new Event("input", { bubbles: true }));
@@ -71,7 +71,7 @@ assert.equal(form.hidden, true, "A valid request hides the form.");
 assert.equal(success.hidden, false, "A valid request shows the demo success state.");
 assert.match(
   success.textContent,
-  /nothing was sent or saved/,
+  /not transmitted or saved/,
   "The success state clearly explains demo behavior.",
 );
 
